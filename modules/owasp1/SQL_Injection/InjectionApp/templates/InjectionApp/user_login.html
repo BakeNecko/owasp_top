@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Authorization{% endblock %}
+
+{% block body%}
+
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Login Form -->
+    <form method="post">
+        {% csrf_token %}
+
+        {% if authentication_error %}
+        <div class="OyEIQ uSvLId" jsname="h9d3hd" id="nameError" aria-live="assertive">
+            <div class="EjBTad" aria-hidden="true">
+                <svg aria-hidden="true" class="stUf5b LxE1Id" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+                </svg>
+            </div>
+            <div jsname="B34EJ">
+                <span jsslot="">Неверное имя пользователя или пароль</span>
+            </div>
+        </div>
+        {% endif %}
+
+        <input type="text" id="username" class="fadeIn second" name="username" placeholder="username">
+        <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+  </div>
+</div>
+
+
+
+
+<!--<form action="{% url 'login' %}" method="post">-->
+<!--    {% csrf_token %}-->
+
+
+<!--    {{ form.as_p }}-->
+<!--    <div class="bd-example">-->
+<!--        {{ form.non_field.errors }}-->
+<!--        <div class="mb-3">-->
+<!--            <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>-->
+<!--            {{ form.username }}-->
+<!--            <div class="invalid-feedback">-->
+<!--                {{ form.username.errors }}-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="mb-3">-->
+<!--            <label for="{{ form.password.id_for_label }}" class="form-label">Password</label>-->
+<!--            {{ form.password }}-->
+<!--            <div class="invalid-feedback">-->
+<!--                {{ form.password.errors }}-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <button type="submit" class="btn btn-primary btn-block">Войти</button>-->
+
+<!--</form>-->
+{% endblock %}
